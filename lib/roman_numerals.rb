@@ -35,7 +35,8 @@ def validate(string)
   fail "Invalid numeral formulation: too many consecutive Xs" if invalid_formulation?(string, "X", 4)
   fail "Invalid numeral formulation: too many consecutive Vs" if invalid_formulation?(string, "V", 2)
   fail "Invalid numeral formulation: too many consecutive Ls" if invalid_formulation?(string, "L", 2)
-  fail message = "Invalid numeral formulation: too many consecutive Cs" if invalid_formulation?(string, "C", 4)
+  fail "Invalid numeral formulation: too many consecutive Cs" if invalid_formulation?(string, "C", 4)
+  fail fail "Invalid numeral formulation: too many consecutive Ds" if invalid_formulation?(string, "D", 2)
   string
 end
 
