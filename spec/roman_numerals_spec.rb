@@ -1,18 +1,30 @@
 require 'roman_numerals'
 
-describe RomanNumerals do
-  subject(:romannumerals) {described_class.new}
+describe "Roman Numerals" do
 
   it 'returns 1 when given I' do
-    expect(subject.convert("I")).to eq 1
+    expect(roman_numerals("I")).to eq 1
   end
 
   it 'returns 5 when given V' do
-    expect(subject.convert("V")).to eq 5
+    expect(roman_numerals("V")).to eq 5
   end
 
+  it 'returns 2 when given II' do
+    expect(roman_numerals("II")).to eq 2
+  end
 
   describe 'error handling' do
+
+    it 'returns an error if you give it a non-roman numeral' do
+      message = "Invalid characters present"
+      expect { roman_numerals("P") }.to raise_error(RuntimeError, message)
+    end
+
+    it 'returns an error if you give it >3 Is in a row' do
+      message = "Invalid numeral formulation"
+      expect{ roman_numerals("IIII") }.to raise_error(RuntimeError, message)
+    end
 
     # it raises an error if I/X/C/M come 3 times in a row
     # it raises an error if V/L/D are repeated
