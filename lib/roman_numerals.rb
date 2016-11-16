@@ -8,6 +8,7 @@ def convert_numerals(array)
       when "I" then 1
       when "V" then 5
       when "X" then 10
+      when "L" then 50
     end
   end
   output

@@ -18,6 +18,14 @@ describe "Roman Numerals" do
     expect(roman_numerals("X")).to eq 10
   end
 
+  it 'returns 6 when given VI' do
+    expect(roman_numerals("VI")).to eq 6
+  end
+
+  it 'returns 50 when given L' do
+    expect(roman_numerals("L")).to eq 50
+  end
+
   describe 'error handling' do
 
     it 'returns an error if you give it a non-roman numeral' do
