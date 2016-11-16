@@ -26,6 +26,10 @@ describe "Roman Numerals" do
     expect(roman_numerals("L")).to eq 50
   end
 
+  it 'returns 56 when given LVI' do
+    expect(roman_numerals("LVI")).to eq 56
+  end
+
   describe 'error handling' do
 
     it 'returns an error if you give it a non-roman numeral' do
@@ -46,6 +50,11 @@ describe "Roman Numerals" do
     it 'returns an error if you give it >1 Vs in a row' do
       message = "Invalid numeral formulation: too many consecutive Vs"
       expect{ roman_numerals("VV") }.to raise_error(RuntimeError, message)
+    end
+
+    it 'returns an error if you give it >1 Ls in a row' do
+      message = "Invalid numeral formulation: too many consecutive Ls"
+      expect{ roman_numerals("LL") }.to raise_error(RuntimeError, message)
     end
 
     # it raises an error if I/X/C/M come 3 times in a row

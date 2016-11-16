@@ -27,9 +27,10 @@ end
 
 def validate(string)
   fail 'Invalid characters present' if invalid_characters?(string)
-  fail "Invalid numeral formulation: too many consecutive Is" if invalid_formulation_Is?(string)
-  fail "Invalid numeral formulation: too many consecutive Xs" if invalid_formulation_Xs?(string)
-  fail "Invalid numeral formulation: too many consecutive Vs" if invalid_formulation_Vs?(string)
+  fail "Invalid numeral formulation: too many consecutive Is" if invalid_formulation?(string, "I", 4)
+  fail "Invalid numeral formulation: too many consecutive Xs" if invalid_formulation?(string, "X", 4)
+  fail "Invalid numeral formulation: too many consecutive Vs" if invalid_formulation?(string, "V", 2)
+  fail "Invalid numeral formulation: too many consecutive Ls" if invalid_formulation?(string, "L", 2)
   string
 end
 
@@ -37,14 +38,6 @@ def invalid_characters?(string)
   string.match(/A|B|E|F|G|H|J|K|N|O|P|Q|R|S|T|U|W|Y|Z|\s|\d|\W/)
 end
 
-def invalid_formulation_Is?(string)
-  string.match(/IIII/)
-end
-
-def invalid_formulation_Xs?(string)
-  string.match(/XXXX/)
-end
-
-def invalid_formulation_Vs?(string)
-  string.match(/VV/)
+def invalid_formulation?(string, letter, times)
+  string.match(/#{letter}{#{times}}/)
 end
