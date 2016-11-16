@@ -26,8 +26,13 @@ describe "Roman Numerals" do
     end
 
     it 'returns an error if you give it >3 Is in a row' do
-      message = "Invalid numeral formulation"
+      message = "Invalid numeral formulation: too many consecutive Is"
       expect{ roman_numerals("IIII") }.to raise_error(RuntimeError, message)
+    end
+
+    it 'returns an error if you give it >3 Xs in a row' do
+      message = "Invalid numeral formulation: too many consecutive Xs"
+      expect{ roman_numerals("XXXX") }.to raise_error(RuntimeError, message)
     end
 
     # it raises an error if I/X/C/M come 3 times in a row
