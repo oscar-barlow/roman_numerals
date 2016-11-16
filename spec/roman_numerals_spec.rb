@@ -61,6 +61,11 @@ describe "Roman Numerals" do
       expect{ roman_numerals("LL") }.to raise_error(RuntimeError, message)
     end
 
+    it 'returns an error if you give it >3 Cs in a row' do
+      message = "Invalid numeral formulation: too many consecutive Cs"
+      expect{ roman_numerals("CCCC") }.to raise_error(RuntimeError, message)
+    end
+
     # it raises an error if I/X/C/M come 3 times in a row
     # it raises an error if V/L/D are repeated
     # it raises an error if I is subtracted from LDCM
