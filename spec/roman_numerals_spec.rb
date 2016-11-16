@@ -34,6 +34,10 @@ describe "Roman Numerals" do
     expect(roman_numerals("C")).to eq 100
   end
 
+  it 'returns 500 when given D' do
+    expect(roman_numerals("D")).to eq 500
+  end
+
   describe 'error handling' do
 
     it 'returns an error if you give it a non-roman numeral' do
