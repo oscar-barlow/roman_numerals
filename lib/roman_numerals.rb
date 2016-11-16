@@ -7,6 +7,7 @@ def convert_numerals(array)
     case item
       when "I" then 1
       when "V" then 5
+      when "X" then 10
     end
   end
   output
@@ -30,7 +31,7 @@ def validate(string)
 end
 
 def invalid_characters?(string)
-  string.match(/A|B|E|F|G|H|J|K|N|O|P|Q|R|S|T|U|W|X|Y|Z|\s|\d|\W/)
+  string.match(/A|B|E|F|G|H|J|K|N|O|P|Q|R|S|T|U|W|Y|Z|\s|\d|\W/)
 end
 
 def invalid_formulation?(string)

@@ -14,6 +14,10 @@ describe "Roman Numerals" do
     expect(roman_numerals("II")).to eq 2
   end
 
+  it 'returns 10 when given X' do
+    expect(roman_numerals("X")).to eq 10
+  end
+
   describe 'error handling' do
 
     it 'returns an error if you give it a non-roman numeral' do
@@ -33,6 +37,5 @@ describe "Roman Numerals" do
     # it raises an error if you try and subtract V/L/D from anything
 
   end
-
 
 end
