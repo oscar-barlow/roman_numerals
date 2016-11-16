@@ -1,15 +1,17 @@
+ROMAN_NUMERALS = {
+  :I => 1,
+  :V => 5,
+  :X => 10,
+  :L => 50,
+}
+
 def split_numerals(string)
   string.chars
 end
 
 def convert_numerals(array)
   output = array.collect do |item|
-    case item
-      when "I" then 1
-      when "V" then 5
-      when "X" then 10
-      when "L" then 50
-    end
+    ROMAN_NUMERALS[item.to_sym]
   end
   output
 end
