@@ -38,6 +38,10 @@ describe "Roman Numerals" do
     expect(roman_numerals("D")).to eq 500
   end
 
+  it 'returns 1000 when given M' do
+    expect(roman_numerals("M")).to eq 1000
+  end
+
   describe 'error handling' do
 
     it 'returns an error if you give it a non-roman numeral' do
@@ -46,37 +50,40 @@ describe "Roman Numerals" do
     end
 
     it 'returns an error if you give it >3 Is in a row' do
-      message = "Invalid numeral formulation: too many consecutive Is"
+      message = "Invalid numeral formulation."
       expect{ roman_numerals("IIII") }.to raise_error(RuntimeError, message)
     end
 
     it 'returns an error if you give it >3 Xs in a row' do
-      message = "Invalid numeral formulation: too many consecutive Xs"
+      message = "Invalid numeral formulation."
       expect{ roman_numerals("XXXX") }.to raise_error(RuntimeError, message)
     end
 
     it 'returns an error if you give it >1 Vs in a row' do
-      message = "Invalid numeral formulation: too many consecutive Vs"
+      message = "Invalid numeral formulation."
       expect{ roman_numerals("VV") }.to raise_error(RuntimeError, message)
     end
 
     it 'returns an error if you give it >1 Ls in a row' do
-      message = "Invalid numeral formulation: too many consecutive Ls"
+      message = "Invalid numeral formulation."
       expect{ roman_numerals("LL") }.to raise_error(RuntimeError, message)
     end
 
     it 'returns an error if you give it >3 Cs in a row' do
-      message = "Invalid numeral formulation: too many consecutive Cs"
+      message = "Invalid numeral formulation."
       expect{ roman_numerals("CCCC") }.to raise_error(RuntimeError, message)
     end
 
     it 'returns an error if you give it >1 Ds in a row' do
-      message = "Invalid numeral formulation: too many consecutive Ds"
+      message = "Invalid numeral formulation."
       expect{ roman_numerals("DD") }.to raise_error(RuntimeError, message)
     end
 
-    # it raises an error if I/X/C/M come 3 times in a row
-    # it raises an error if V/L/D are repeated
+    it "returns an error if you give it >3 Ms in a row" do
+      message = "Invalid numeral formulation."
+      expect { roman_numerals("MMMM") }.to raise_error(RuntimeError, message)
+    end
+
     # it raises an error if I is subtracted from LDCM
     # it raises an error if X is subtracted from DM
     # it raises an error if you try and subtract V/L/D from anything

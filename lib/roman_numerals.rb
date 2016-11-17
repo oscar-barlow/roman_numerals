@@ -5,6 +5,17 @@ ROMAN_NUMERALS = {
   :L => 50,
   :C => 100,
   :D => 500,
+  :M => 1000,
+}
+
+INVALID_FORMULATIONS = {
+  :I => 4,
+  :V => 2,
+  :X => 4,
+  :L => 2,
+  :C => 4,
+  :D => 2,
+  :M => 4,
 }
 
 def split_numerals(string)
@@ -31,12 +42,7 @@ end
 
 def validate(string)
   fail 'Invalid characters present' if invalid_characters?(string)
-  fail "Invalid numeral formulation: too many consecutive Is" if invalid_formulation?(string, "I", 4)
-  fail "Invalid numeral formulation: too many consecutive Xs" if invalid_formulation?(string, "X", 4)
-  fail "Invalid numeral formulation: too many consecutive Vs" if invalid_formulation?(string, "V", 2)
-  fail "Invalid numeral formulation: too many consecutive Ls" if invalid_formulation?(string, "L", 2)
-  fail "Invalid numeral formulation: too many consecutive Cs" if invalid_formulation?(string, "C", 4)
-  fail fail "Invalid numeral formulation: too many consecutive Ds" if invalid_formulation?(string, "D", 2)
+  invalid_formulation?(string)
   string
 end
 
@@ -44,6 +50,6 @@ def invalid_characters?(string)
   string.match(/A|B|E|F|G|H|J|K|N|O|P|Q|R|S|T|U|W|Y|Z|\s|\d|\W/)
 end
 
-def invalid_formulation?(string, letter, times)
-  string.match(/#{letter}{#{times}}/)
+def invalid_formulation?(string)
+  fail "Invalid numeral formulation." if INVALID_FORMULATIONS.any? { |numeral, times| string.match(/#{numeral}{#{times}}/) }
 end
